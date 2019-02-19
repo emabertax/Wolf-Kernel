@@ -131,8 +131,8 @@ static struct pll_clk apcs_hf_pll = {
 		.test_ctl_lo_val = 0x1C000000,
 	},
 	.base = &virt_bases[APCS_C0_PLL_BASE],
-	.max_rate = 2208000000UL,
-	.min_rate = 652800000UL,
+	.max_rate = 2250000000UL,
+	.min_rate = 490000000UL,
 	.src_rate =  19200000UL,
 	.c = {
 		.parent = &xo_a_clk.c,
@@ -939,7 +939,7 @@ arch_initcall(clock_cpu_init);
 #define SRC_DIV				0x1
 
 /* Configure PLL at Low frequency */
-unsigned long pwrcl_early_boot_rate = 652800000;
+unsigned long pwrcl_early_boot_rate = 490000000;
 
 static int __init cpu_clock_pwr_init(void)
 {
