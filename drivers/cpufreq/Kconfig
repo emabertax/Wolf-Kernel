@@ -138,6 +138,15 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVEX
 	  Note that not all cpu frequency drivers supports interactivex governor.
 	  For more info, take a look at the cpu frequency driver help section.
 	  Performance governor will be the fallback governor.
+	  
+config CPU_FREQ_DEFAULT_GOV_ONDEMANDX
+	bool "ondemandx"
+	select CPU_FREQ_GOV_ONDEMANDX
+	help
+	  Use the CPU frequency governor 'ondemandx' as default.
+	  Note that not all cpu frequency drivers supports ondemandx governor.
+	  For more info, take a look at the cpu frequency driver help section.
+	  Performance governor will be the fallback governor.
 
 endchoice
 
