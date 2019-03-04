@@ -167,30 +167,12 @@
 
 			compatible = "qcom,gpu-pwrlevels";
 			
-			/* MYeXtreme */
-		qcom,gpu-pwrlevel@0 {
-			reg = <0>;
-			qcom,gpu-freq = <1166000000>;
-			qcom,bus-freq = <11>;
-			qcom,bus-min = <11>;
-			qcom,bus-max = <11>;
-		};
-
-		/* TURBO eXtreme */
-		qcom,gpu-pwrlevel@1 {
-			reg = <1>;
-			qcom,gpu-freq = <1037000000>;
-			qcom,bus-freq = <11>;
-			qcom,bus-min = <10>;
-			qcom,bus-max = <11>;
-		};
-
 		/* TURBO */
 		qcom,gpu-pwrlevel@2 {
 			reg = <2>;
 			qcom,gpu-freq = <908000000>;
 			qcom,bus-freq = <11>;
-			qcom,bus-min = <9>;
+			qcom,bus-min = <11>;
 			qcom,bus-max = <11>;
 		};
 
@@ -199,8 +181,8 @@
 			reg = <3>;
 			qcom,gpu-freq = <779000000>;
 			qcom,bus-freq = <10>;
-			qcom,bus-min = <8>;
-			qcom,bus-max = <11>;
+			qcom,bus-min = <9>;
+			qcom,bus-max = <10>;
 		};
 
 		/* NOM */
@@ -218,7 +200,7 @@
 			qcom,gpu-freq = <485000000>;
 			qcom,bus-freq = <8>;
 			qcom,bus-min = <7>;
-			qcom,bus-max = <10>;
+			qcom,bus-max = <9>;
 		};
 
 		/* SVS */
