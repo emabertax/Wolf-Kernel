@@ -577,7 +577,7 @@
 
 				qcom,mem-acc-voltage =
 				/* Global speed bin */
-				<1 1 1 1 1 2 2 2 2 2 2 2 2 2 2>;
+				<1 1 1 1 1 2 2 2 2 2 2 2 2 2>;
 				/*default is 4 "1"*/
 
 				qcom,corner-frequencies =
@@ -594,8 +594,7 @@
 					< 2073600 >,
 					< 2246400 >,
 					< 2419200 >,
-					< 2592000 >,
-					< 2764800 >;
+					< 2592000 >;
 
 				qcom,cpr-open-loop-voltage-fuse-adjustment =
 					/* Speed bin 0; CPR rev 0..7 */
