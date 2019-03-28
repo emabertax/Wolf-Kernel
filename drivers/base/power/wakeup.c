@@ -20,10 +20,20 @@
 
 #include "power.h"
 
+static bool enable_wlan_rx_wake_ws = true;
+module_param(enable_wlan_rx_wake_ws, bool, 0644);
+static bool enable_wlan_ctrl_wake_ws = true;
+module_param(enable_wlan_ctrl_wake_ws, bool, 0644);
+static bool enable_wlan_wake_ws = true;
+module_param(enable_wlan_wake_ws, bool, 0644);
 static bool enable_qcom_rx_wakelock_ws = true;
 module_param(enable_qcom_rx_wakelock_ws, bool, 0644);
 static bool enable_wlan_extscan_wl_ws = true;
 module_param(enable_wlan_extscan_wl_ws, bool, 0644);
+static bool enable_wlan_wow_wl_ws = true;
+module_param(enable_wlan_wow_wl_ws, bool, 0644);
+static bool enable_bluetooth_timer_ws = true;
+module_param(enable_bluetooth_timer_ws, bool, 0644);
 static bool enable_ipa_ws = true;
 module_param(enable_ipa_ws, bool, 0644);
 static bool enable_wlan_ws = true;
@@ -38,6 +48,24 @@ static bool enable_bbd_wake_lock_ws = true;
 module_param(enable_bbd_wake_lock_ws, bool, 0644);
 static bool enable_GPSD_ws = true;
 module_param(enable_GPSD_ws, bool, 0644);
+static bool enable_netmgr_wl_ws = true;
+module_param(enable_netmgr_wl_ws, bool, 0644);
+static bool enable_alarmtimer_ws = true;
+module_param(enable_alarmtimer_ws, bool, 0644);
+static bool enable_bq_delt_soc_wake_lock_ws = true;
+module_param(enable_bq_delt_soc_wake_lock_ws, bool, 0644);
+static bool enable_wlan_ipa_ws = true;
+module_param(enable_wlan_ipa_ws, bool, 0644);
+static bool enable_wlan_pno_wl_ws = true;
+module_param(enable_wlan_pno_wl_ws, bool, 0644);
+static bool enable_wcnss_filter_lock_ws = true;
+module_param(enable_wcnss_filter_lock_ws, bool, 0644);
+static bool enable_bluesleep_ws = true;
+module_param(enable_bluesleep_ws, bool, 0644);
+static bool enable_msm_hsic_ws = true;
+module_param(enable_msm_hsic_ws, bool, 0644);
+static bool enable_si_ws = true;
+module_param(enable_si_ws, bool, 0644);
 
 /*
  * If set, the suspend/hibernate code will abort transitions to a sleep state
@@ -484,8 +512,36 @@ static bool wakeup_source_blocker(struct wakeup_source *ws)
 				!strncmp(ws->name, "wlan", wslen)) ||
 			(!enable_timerfd_ws &&
 				!strncmp(ws->name, "[timerfd]", wslen)) ||
+			(!enable_wlan_ipa_ws &&
+				!strncmp(ws->name, "wlan_ipa", wslen)) ||
+			(!enable_wcnss_filter_lock_ws &&
+				!strncmp(ws->name, "wcnss_filter_lock", wslen)) ||
+			(!enable_wlan_pno_wl_ws &&
+				!strncmp(ws->name, "wlan_pno_wl", wslen)) ||
 			(!enable_netlink_ws &&
-				!strncmp(ws->name, "NETLINK", wslen))) {
+				!strncmp(ws->name, "NETLINK", wslen)) ||
+			(!enable_netmgr_wl_ws &&
+				!strncmp(ws->name, "netmgr_wl", wslen)) ||
+			(!enable_wlan_wake_ws &&
+				!strncmp(ws->name, "wlan_wake", wslen)) ||
+			(!enable_wlan_rx_wake_ws &&
+				!strncmp(ws->name, "wlan_rx_wake", wslen)) ||
+			(!enable_bluetooth_timer_ws &&
+				!strncmp(ws->name, "bluetooth_timer", wslen)) ||
+			(!enable_alarmtimer_ws &&
+				!strncmp(ws->name, "alarmtimer", wslen)) ||
+			(!enable_bq_delt_soc_wake_lock_ws &&
+				!strncmp(ws->name, "bq_delt_soc_wake_lock", wslen)) ||
+			(!enable_wlan_wow_wl_ws &&
+				!strncmp(ws->name, "wlan_wow_wl", wslen)) ||
+			(!enable_msm_hsic_ws && 
+				!strncmp(ws->name, "msm_hsic_host", wslen)) ||
+			(!enable_si_ws && 
+				!strncmp(ws->name, "sensor_ind", wslen)) ||
+			(!enable_bluesleep_ws && 
+				!strncmp(ws->name, "bluesleep", wslen)) ||
+			(!enable_wlan_ctrl_wake_ws &&
+				!strncmp(ws->name, "wlan_ctrl_wake", wslen))) {
 			(!enable_mmc0_detect_ws && 
 				!strncmp(ws->name, "mmc0_detect", wslen)) ||
 			(!enable_bbd_wake_lock_ws && 
