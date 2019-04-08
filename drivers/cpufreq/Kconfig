@@ -184,6 +184,36 @@ config CPU_FREQ_DEFAULT_GOV_ZZMOOVE
  	frequency lookup tables and optimized scaling triggers instead of
  	% frequency steps to get smooth up/downscaling dependant on CPU load.
 	
+config CPU_FREQ_DEFAULT_GOV_BIOSHOCK
+            bool "bioshock"
+            select CPU_FREQ_GOV_BIOSHOCK
+            help
+              Use the CPUFreq governor 'bioshock' as default.
+
+config CPU_FREQ_DEFAULT_GOV_BLU_ACTIVE
+            bool "blu_active"
+            select CPU_FREQ_GOV_BLU_ACTIVE
+            help
+              Use the CPUFreq governor 'bioshock' as default.
+
+config CPU_FREQ_DEFAULT_GOV_DANCEDANCE
+            bool "dancedance"
+            select CPU_FREQ_GOV_DANCEDANCE
+            help
+              Use the CPUFreq governor 'dancedance' as default.
+
+config CPU_FREQ_DEFAULT_GOV_DARKNESS
+            bool "darkness"
+            select CPU_FREQ_GOV_DARKNESS
+            help
+              Use the CPUFreq governor 'darkness' as default.
+	      
+config CPU_FREQ_DEFAULT_GOV_INTELLIACTIVE
+            bool "intelliactive"
+            select CPU_FREQ_GOV_INTELLIACTIVE
+            help
+              Use the CPUFreq governor 'intelliactive' as default.
+	
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -368,6 +398,41 @@ config CPU_FREQ_GOV_ZZMOOVE
  	  frequency lookup tables and optimized scaling triggers instead of
  	  % frequency steps to get smooth up/downscaling dependant on CPU load.
  	  If in doubt, say N.
+	  
+config CPU_FREQ_GOV_BIOSHOCK
+           tristate "'bioshock' cpufreq governor"
+           depends on CPU_FREQ
+           help
+             'bioshock' - a "smart" optimized governor!
+             If in doubt, say N.
+
+config CPU_FREQ_GOV_BLU_ACTIVE
+           tristate "'blu_active' cpufreq governor"
+           depends on CPU_FREQ
+           help
+             'blu_active' - a "smart" optimized governor!
+             If in doubt, say N.
+
+config CPU_FREQ_GOV_DANCEDANCE
+           tristate "'dancedance' cpufreq governor"
+           depends on CPU_FREQ
+           help
+             'dancedance' - a "smart" optimized governor!
+             If in doubt, say N.
+
+config CPU_FREQ_GOV_DARKNESS
+           tristate "'darkness' cpufreq governor"
+           depends on CPU_FREQ
+           help
+             'darkness' - a "smart" optimized governor!
+             If in doubt, say N.
+	     
+config CPU_FREQ_GOV_INTELLIACTIVE
+           tristate "'intelliactive' cpufreq governor"
+           depends on CPU_FREQ
+           help
+             'intelliactive' - a "smart" optimized governor!
+             If in doubt, say N.
 	  
 comment "CPU frequency scaling drivers"
 
